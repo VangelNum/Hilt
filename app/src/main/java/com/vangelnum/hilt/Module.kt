@@ -1,31 +1,31 @@
-package com.vangelnum.hilt.di
+package com.vangelnum.hilt
 
-import com.vangelnum.hilt.data.remote.MyApi
-import com.vangelnum.hilt.data.repository.MyRepositoryImpl
-import com.vangelnum.hilt.domain.repository.MyRepository
+import com.vangelnum.hilt.Constant.BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
 import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object AppModule {
+object Module {
 
-    @Provides
     @Singleton
+    @Provides
     fun provideMyApi(): MyApi {
         return Retrofit.Builder()
-            .baseUrl("https")
+            .addConverterFactory(GsonConverterFactory.create())
+            .baseUrl(BASE_URL)
             .build()
             .create(MyApi::class.java)
     }
 
-    @Provides
     @Singleton
+    @Provides
     fun provideMyRepository(
         api: MyApi
     ) : MyRepository {
