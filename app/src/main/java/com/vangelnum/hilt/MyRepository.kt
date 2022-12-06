@@ -4,5 +4,5 @@ import com.vangelnum.hilt.data.UnsplashItem
 import retrofit2.Response
 
 interface MyRepository {
-    suspend fun getPhotos() : Response<List<UnsplashItem>>
+    suspend fun getPhotos(): Response<List<UnsplashItem>>
 }

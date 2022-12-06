@@ -7,7 +7,6 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 import javax.inject.Singleton
 
 @Module
@@ -27,8 +26,8 @@ object Module {
     @Singleton
     @Provides
     fun provideMyRepository(
-        api: MyApi
-    ) : MyRepository {
+        api: MyApi,
+    ): MyRepository {
         return MyRepositoryImpl(api)
     }
 }

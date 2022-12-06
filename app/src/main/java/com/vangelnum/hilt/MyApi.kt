@@ -6,6 +6,6 @@ import retrofit2.Response
 import retrofit2.http.GET
 
 interface MyApi {
-    @GET ("/photos/?client_id=$API_KEY")
-    suspend fun getPhotos() : Response<List<UnsplashItem>>
+    @GET("/photos/?client_id=$API_KEY")
+    suspend fun getPhotos(): Response<List<UnsplashItem>>
 }
